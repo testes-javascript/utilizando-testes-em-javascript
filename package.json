@@ -1,0 +1,11 @@
+{
+  "name": "exemplos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "00-minimo.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Michael Douglas Barbosa Araujo",
+  "license": "ISC"
+}
