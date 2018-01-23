@@ -86,6 +86,7 @@ form > fieldset > p > label {
     display: inline-block;
     font-weight: 500;
     text-align: left;
+    width: 100%;
 }
 
 form > fieldset > p > input[type=text], input[type=email] {
