@@ -1,32 +1,24 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-    entry: './src/js/main.js',
-  
-    output: {
-        path: __dirname + '/dist/js/',
-        filename: 'bundle.js'
+    entry: {
+        app: './src/js/app.js'
     },
-
+    output: {
+        filename: 'app.bundle.js',
+        path: path.join(__dirname, 'dist')
+    },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    cacheDirectory: true,
-                    presets: ['es2015']
+                    presets: [['es2015',{modules: false}]]
                 }
             }
         ]
-    },
-
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
-    ]
-};
+    }
+}
