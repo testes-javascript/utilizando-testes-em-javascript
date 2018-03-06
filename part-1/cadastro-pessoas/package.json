@@ -11,7 +11,11 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "webpack": "webpack",
+    "webpack": "./node_modules/.bin/webpack",
+    "tests": "./node_modules/.bin/babel-node ./src/js/Testes/index.js",
     "version": "babel --version"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.10"
   }
 }
