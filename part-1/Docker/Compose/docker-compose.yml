@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  assets:
+    container_name: 'assets'
+    build: ./assets
+    ports:
+      - "8081:80"
+    restart: always
+    volumes:
+      - ./assets:/usr/share/nginx/html
+  static:
+    container_name: 'static'
+    build: .
+    ports:
+      - "8080:80"
+    restart: always
+    volumes:
+      - .:/usr/share/nginx/html
+  #REDIS
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - /srv/docker/redis:/var/lib/redis
+    container_name: redis
