@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chai.js browser</title>
+    <style>
+        #resultado {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: rgb(175, 95, 66);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Asserções via browser Chai.js</h1>
+
+    <h3>
+        Testar asserção:
+    </h3>
+    <p>
+        Primeiro Valor:
+        <input type="text" name="primeiro" id="primeiro" value="1" />
+    </p>
+    <p>
+        Segundo Valor:
+        <input type="text" name="segundo" id="segundo" value="2" />
+    </p>
+
+    <p>
+        <input type="button" id="tester" value="Executar o teste">
+    </p>
+
+    <div id="resultado"></div>
+
+    <script src="http://www.chaijs.com/chai.js" type="text/javascript"></script>
+    <script>
+        var assert = chai.assert;
+
+        const result = (message) => {
+            document.getElementById("resultado").innerHTML = message;
+        }
+
+        document.getElementById("tester").onclick = () => {
+            try {
+                var first = document.getElementById("primeiro").value;
+                var second = document.getElementById("segundo").value;
+                assert.equal(first, second);
+                result(`'${first}' TO EQUAL '${second}'`);
+            } catch (e) {
+                result(e.message);
+            }
+        };
+    </script>
+</body>
+
+</html>
