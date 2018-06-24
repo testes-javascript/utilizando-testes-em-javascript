@@ -1,0 +1,9 @@
+{
+  "name": "Plugins_Chai.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "chai-json": "^1.0.0"
+  }
+}
