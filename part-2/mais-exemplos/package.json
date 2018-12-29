@@ -1,15 +1,9 @@
 {
-  "name": "instalacao",
+  "name": "mais-exemplos",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "node Test.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "chai": "^4.1.2"
+    "chai": "^4.2.0"
   }
 }
