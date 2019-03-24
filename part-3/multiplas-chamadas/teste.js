@@ -1,3 +1,10 @@
+const chai = require('chai'),
+  expect = chai.expect;
+
+const chaiAsPromised = require('chai-as-promised');
+
+chai.use(chaiAsPromised);
+
 const getName = name => {
   return new Promise((resolve, reject) => {
     if (typeof name === 'string') {
@@ -9,13 +16,18 @@ const getName = name => {
 
 describe('Multiple Calls /', () => {
   it('Calls', done => {
-    getName().then(result => {
+    getName('Michael').then(result => {
       console.log(result);
-      done();
     });
-    getName().then(result => {
+    getName('Douglas').then(result => {
       console.log(result);
-      done();
     });
+    done();
+  });
+  it('Call to getName not put the parameter', done => {
+    expect(getName().catch(error => error)).to.eventually.equal(
+      'Parameter is not of type string'
+    );
+    done();
   });
 });
