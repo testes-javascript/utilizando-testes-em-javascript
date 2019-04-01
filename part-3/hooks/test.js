@@ -15,7 +15,7 @@ describe('Test Hooks', function () {
     });
 
     beforeEach(function () {
-      console.log('Test afterEach #' + tests++);
+      console.log('Test beforeEach #' + tests++);
       fs.writeFileSync(file, 'Michael Douglas');
     });
 
