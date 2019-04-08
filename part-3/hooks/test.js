@@ -43,5 +43,6 @@ describe('Test Hooks', function () {
       newFile = 'novo.txt';
       fs.writeFileSync(newFile, 'Michael Douglas Barbosa Araujo');
     });
+    
   });
 });
