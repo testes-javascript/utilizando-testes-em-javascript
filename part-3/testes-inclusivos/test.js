@@ -42,4 +42,9 @@ describe('Testes', function () {
       expect('teste').to.equals('teste');
     });
   });
+  describe.skip('Teste 1', function () {
+    it('0', function () {
+      expect('teste').to.equals('teste');
+    });
+  });
 });
