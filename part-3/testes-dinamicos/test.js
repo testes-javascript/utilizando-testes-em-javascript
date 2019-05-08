@@ -31,8 +31,8 @@ describe('Product', () => {
     assert.equal(soda.category, 'food');
   });
   it('Objeto Toy', () => {
-    let soda = new Toy('robot');
-    assert.equal(soda.name, 'robot');
-    assert.equal(soda.category, 'toy');
+    let toy = new Toy('robot');
+    assert.equal(toy.name, 'robot');
+    assert.equal(toy.category, 'toy');
   });
 });
