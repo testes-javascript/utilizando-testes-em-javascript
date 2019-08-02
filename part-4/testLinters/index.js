@@ -1,3 +1,3 @@
-const getName = () => 'OI';
+const getName = name => name;
 
-console.log(getName());
+console.log(getName('Teste em JavaScript'));
