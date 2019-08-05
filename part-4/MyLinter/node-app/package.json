@@ -1,0 +1,12 @@
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^6.1.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-my-eslint-rules": "../my-eslint-rules"
+  }
+}
