@@ -5,5 +5,6 @@ module.exports = {
   plugins: ['my-eslint-rules'],
   rules: {
     'my-eslint-rules/async-func-name': 'error',
+    'my-eslint-rules/template-literal': 'error',
   },
 };
