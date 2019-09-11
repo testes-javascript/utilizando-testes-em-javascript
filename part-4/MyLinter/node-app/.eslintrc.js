@@ -7,5 +7,7 @@ module.exports = {
   rules: {
     'my-eslint-rules/async-func-name': 'error',
     'my-eslint-rules/template-literal': 'error',
+    'no-console': 'off',
+    'prefer-template': 'off',
   },
 };
