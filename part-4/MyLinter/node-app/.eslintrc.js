@@ -4,6 +4,9 @@ module.exports = {
   },
   extends: 'airbnb-base',
   plugins: ['my-eslint-rules'],
+  settings: {
+    'import/extensions': ['.js', '.jsx'],
+  },
   rules: {
     'my-eslint-rules/async-func-name': 'error',
     'my-eslint-rules/template-literal': 'error',
