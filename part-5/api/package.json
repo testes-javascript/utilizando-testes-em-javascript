@@ -4,11 +4,25 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^3.21.1",
     "mongoose": "^5.7.3"
   },
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
   "devDependencies": {
-    "nodemon": "^1.19.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2",
+    "sequelize-cli": "^5.5.0",
     "sucrase": "^3.10.1"
   }
 }

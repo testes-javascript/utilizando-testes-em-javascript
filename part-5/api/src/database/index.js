@@ -10,6 +10,7 @@ class Database {
   init() {
     this.connection = Mongoose.connect(databaseConfig.connection, {
       useNewUrlParser: databaseConfig.useNewUrlParser,
+      useUnifiedTopology: databaseConfig.useUnifiedTopology,
     });
   }
 }
