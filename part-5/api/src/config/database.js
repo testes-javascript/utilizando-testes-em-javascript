@@ -1,5 +1,5 @@
 module.exports = {
-  connection: 'mongodb://localhost:27017/test',
+  connection: 'mongodb://root:Mongo2019@localhost:27017/admin',
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
