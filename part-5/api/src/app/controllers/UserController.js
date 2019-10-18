@@ -1,26 +1,33 @@
+import User from '../Models/User';
+
 class UserController {
-  read(req, res) {
-    return res.json({
-      message: 'Ola, mundo: read',
-    });
+  async read(req, res) {
+    const { id } = req.body;
+    const response = await User.find({ _id: id });
+
+    return res.json(response);
   }
 
-  create(req, res) {
-    return res.json({
-      message: 'Ola, mundo: create',
+  async create(req, res) {
+    const { name } = req.body;
+    const Users = new User({
+      name,
     });
+
+    const response = await Users.save();
+    return res.json(response);
   }
 
-  update(req, res) {
-    return res.json({
-      message: 'Ola, mundo: update',
-    });
+  async update(req, res) {
+    const { name, id } = req.body;
+    const response = await User.updateOne({ _id: id }, { name });
+    return res.json(response);
   }
 
-  delete(req, res) {
-    return res.json({
-      message: 'Ola, mundo: delete',
-    });
+  async delete(req, res) {
+    const { id } = req.body;
+    const response = await User.deleteOne({ _id: id });
+    return res.json(response);
   }
 }
 
