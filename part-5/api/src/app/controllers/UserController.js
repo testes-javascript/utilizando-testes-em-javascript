@@ -10,6 +10,10 @@ class UserController {
 
   async create(req, res) {
     const { name } = req.body;
+
+    if (!name)
+      return res.status(500).send({ error: 'Nome do usuário não fornecido' });
+
     const Users = new User({
       name,
     });
