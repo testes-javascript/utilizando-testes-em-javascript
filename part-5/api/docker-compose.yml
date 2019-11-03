@@ -9,7 +9,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - /Volumes/DiscoVirtual/development_pessoal/utilizando-testes-em-javascript/part-5/api/MongoDB:/data/db
+      - ./MongoDB:/data/db
     networks:
       - mongo-compose-network
 

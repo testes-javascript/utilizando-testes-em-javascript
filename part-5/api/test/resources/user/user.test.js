@@ -126,4 +126,25 @@ describe('Suite de testes da API', () => {
         done();
       });
   });
+
+  it('[API][SUCCESSFUL] - Edição de usuários', done => {
+    const name = 'Levina Passos - 1';
+
+    request(app)
+      .put('/usuarios')
+      .send({ name, id })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, { body: res }) => {
+        if (err) {
+          throw err;
+        } else {
+          const { nModified } = res;
+          expect(nModified).to.equals(1);
+        }
+
+        done();
+      });
+  });
 });
