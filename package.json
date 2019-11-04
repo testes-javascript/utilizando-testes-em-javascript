@@ -12,5 +12,9 @@
     "chai": "^4.2.0",
     "eslint": "^6.1.0",
     "mocha": "^6.2.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1"
   }
 }
