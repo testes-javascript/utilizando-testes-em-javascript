@@ -147,4 +147,42 @@ describe('Suite de testes da API', () => {
         done();
       });
   });
+
+  it('[API][SUCCESSFUL] - Exclusão de usuários', done => {
+    request(app)
+      .delete('/usuarios')
+      .send({ id })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, { body: res }) => {
+        if (err) {
+          throw err;
+        } else {
+          const { deletedCount } = res;
+          expect(deletedCount).to.equals(1);
+        }
+
+        done();
+      });
+  });
+
+  it('[API][SUCCESSFUL] - Verificação de exclusão de usuários', done => {
+    request(app)
+      .delete('/usuarios')
+      .send({ _id: 289892 })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, { body: res }) => {
+        if (err) {
+          throw err;
+        } else {
+          const { deletedCount } = res;
+          expect(deletedCount).to.equals(0);
+        }
+
+        done();
+      });
+  });
 });
