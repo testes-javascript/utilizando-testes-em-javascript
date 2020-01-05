@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import mustacheExpress from 'mustache-express';
 import routes from './routes';
 
 class App {
@@ -7,6 +8,14 @@ class App {
     this.server = express();
     this.middlewares();
     this.routes();
+    this.templateEngine();
+  }
+
+  templateEngine() {
+    this.server.engine('mustache', mustacheExpress());
+
+    this.server.set('view engine', 'mustache');
+    this.server.set('views', __dirname + '/views');
   }
 
   middlewares() {

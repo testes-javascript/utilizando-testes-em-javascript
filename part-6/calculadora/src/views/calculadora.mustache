@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cálculadora</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      input {
+        width: 100%;
+        height: 5vh;
+        padding-right: 10px;
+        text-align: right;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2ch;
+      }
+      table {
+        table-layout: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mt-5 container text-center">
+      <div class="card rounded">
+        <div class="card-body">
+          <h1 class="mb-4">Cálculadora</h1>
+          <input type="text" class="input" id="resultado" disabled />
+          <input type="hidden" name="tipo" id="tipo" />
+        </div>
+
+        <div class="card-body">
+          <table class="table table-sm table-borderless">
+            <tr>
+              <td>
+                <button class="btn btn-warning btn-lg" onclick="c()">C</button>
+              </td>
+              <td>
+                <button class="btn btn-warning btn-lg" onclick="ce()">
+                  CE
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("7")'
+                >
+                  7
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("8")'
+                >
+                  8
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("9")'
+                >
+                  9
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-warning btn-lg btn-block"
+                  onclick='digitado("/", "divisao")'
+                >
+                  /
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("4")'
+                >
+                  4
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("5")'
+                >
+                  5
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("6")'
+                >
+                  6
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-warning btn-lg btn-block"
+                  onclick='digitado("*", "multiplicacao")'
+                >
+                  *
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("1")'
+                >
+                  1
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("2")'
+                >
+                  2
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("3")'
+                >
+                  3
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-warning btn-lg btn-block"
+                  onclick='digitado("-", "subtracao")'
+                >
+                  -
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button
+                  class="btn btn-lg btn-light btn-block"
+                  onclick='digitado("0")'
+                >
+                  0
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-lg btn-primary btn-block"
+                  onclick='executarResultado("=")'
+                >
+                  =
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-warning btn-lg btn-block"
+                  onclick='digitado("+", "soma")'
+                >
+                  +
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let resultado = $('#resultado');
+      let inputExpressao = $('#tipo');
+      let expressaoValor = '';
+
+      const digitado = (valor, expressaoParam = null) => {
+        resultado.attr('value', (expressaoValor = expressaoValor + valor));
+
+        expressao(expressaoParam);
+      };
+
+      const ce = () => resultado.attr('value', '');
+      const c = () => {
+        let ultimoDigito = resultado
+          .val()
+          .substr(0, resultado.val().length - 1);
+        resultado.attr('value', ultimoDigito);
+      };
+
+      const expressao = expressao => {
+        if (expressao != null) {
+          inputExpressao.attr('value', expressao);
+        }
+      };
+
+      const executarResultado = () => {
+        try {
+          console.log(resultado.val());
+          console.log(inputExpressao.val());
+        } catch (error) {
+          resultado.attr('value', 'erro');
+        }
+      };
+    </script>
+  </body>
+</html>

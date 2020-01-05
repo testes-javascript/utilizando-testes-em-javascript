@@ -8,4 +8,8 @@ routes.get('/', (req, res) => {
   });
 });
 
+routes.get('/calculadora', (req, res) => {
+  res.render('calculadora');
+});
+
 export default routes;
