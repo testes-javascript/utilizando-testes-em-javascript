@@ -9,6 +9,6 @@
     "gulp-mocha": "^6.0.0",
     "mocha": "^6.1.4",
     "mocha-notifier-reporter": "^0.1.2",
-    "node-notifier": "^5.4.0"
+    "node-notifier": "^8.0.1"
   }
 }
