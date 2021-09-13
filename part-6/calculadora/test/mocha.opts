@@ -1,0 +1,4 @@
+--slow 5000
+--exit
+--require @babel/register
+test/**/*.test.js
