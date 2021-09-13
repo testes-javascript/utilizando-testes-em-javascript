@@ -32,6 +32,14 @@
           <h1 class="mb-4">Calculadora</h1>
           <input type="text" class="input" id="resultado" value="0" disabled />
           <input type="hidden" name="tipo" id="tipo" />
+
+          <div style="display: none;" id="bloco_resultado">
+            <div class="row mt-3">
+              <div class="col-12">
+                <h5>Resultado: <span id="exibir_resultado"></span> </h5>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="card-body">
@@ -266,9 +274,12 @@
             }),
             processData: false,
             success: function(data, textStatus, jQxhr) {
-              console.log(data);
+              $("#bloco_resultado").show();
+              $("#exibir_resultado").html(data.resultado);
             },
             error: function(jqXhr, textStatus, errorThrown) {
+              $("#bloco_resultado").show();
+              $("#exibir_resultado").html("Infelizmente não foi possível realizar o cálculo");
               console.log(errorThrown);
             },
           });
